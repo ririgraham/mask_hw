@@ -6,21 +6,21 @@ def mask_account_card(data: str) -> str:
     card_pattern = r"(Visa|Visa Platinum|MasterCard|Maestro)[^0-9]*(\d{16})"
     account_pattern = r"(Счет)\s*(\d{20})"
     """Importing masking functions"""
-    from masks import get_mask_card_number, get_mask_account
+    from masks import get_mask_account, get_mask_card_number
 
     """Checking if input equals card regex"""
     card_match = re.search(card_pattern, data)
     if card_match:
         card_type = card_match.group(1)
         card_number = card_match.group(2)
-        masked_card = get_mask_card_number(card_number)
+        masked_card = get_mask_card_number(int(card_number))
         return f"{card_type} {masked_card}"
     """Checking if input equals account regex"""
     account_match = re.search(account_pattern, data)
     if account_match:
         account_type = account_match.group(1)
         account_number = account_match.group(2)
-        masked_account = get_mask_account(account_number)
+        masked_account = get_mask_account(int(account_number))
         return f"{account_type} {masked_account}"
 
     return "Incorrect input"
