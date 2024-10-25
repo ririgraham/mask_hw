@@ -1,12 +1,11 @@
 import re
-
+from masks import get_mask_account, get_mask_card_number
 
 def mask_account_card(data: str) -> str:
     """Defining regex for cards and accounts"""
     card_pattern = r"(Visa|Visa Platinum|MasterCard|Maestro)[^0-9]*(\d{16})"
     account_pattern = r"(Счет)\s*(\d{20})"
     """Importing masking functions"""
-    from masks import get_mask_account, get_mask_card_number
 
     """Checking if input equals card regex"""
     card_match = re.search(card_pattern, data)
