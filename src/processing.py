@@ -1,8 +1,17 @@
+from datetime import datetime
+
+"""Creating a function for filtering data by the key State"""
+
+
 def filter_by_state(data, state="EXECUTED"):
     return [item for item in data if item.get("state") == state]
 
 
-"""Creating a function for filtering data by the key State"""
+"""Creating sorting by date func"""
+
+
+def sort_by_date(data, descending=True):
+    return sorted(data, key=lambda x: datetime.fromisoformat(x["date"]), reverse=descending)
 
 
 """test data"""
@@ -18,3 +27,9 @@ print(filter_by_state(data))
 
 """Executing with CANCELED status"""
 print(filter_by_state(data, "CANCELED"))
+
+"""Executing in decsending order (by default)"""
+print(sort_by_date(data))
+
+"""Executing in ascending order"""
+print(sort_by_date(data, descending=False))
