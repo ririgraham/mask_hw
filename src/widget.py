@@ -25,20 +25,6 @@ def mask_account_card(data: str) -> str:
     return "Incorrect input"
 
 
-test_data = [
-    "Visa Platinum 7000792289606361",
-    "Maestro 1596837868705199",
-    "MasterCard 7158300734726758",
-    "Счет 73654108430135874305",
-    "Счет 64686473678894779589",
-]
-if __name__ == "__main__":
-    for data in test_data:
-        # print(f'Processing: {data}')
-        print(mask_account_card(data))
-        # print('Processed successfully')
-
-
 def get_date(date_str: str) -> str:
     """Splitting string by year, month and day"""
     date_part = date_str.split("T")[0]
@@ -47,7 +33,19 @@ def get_date(date_str: str) -> str:
     """Returning date in the right format"""
     return f"{day}.{month}.{year}"
 
+test_data = [
+    "Visa Platinum 7000792289606361",
+    "Maestro 1596837868705199",
+    "MasterCard 7158300734726758",
+    "Счет 73654108430135874305",
+    "Счет 64686473678894779589",
+]
 
 test_date = "2024-03-11T02:26:18.671407"
+if __name__ == "__main__":
+    for data in test_data:
+        # print(f'Processing: {data}')
+        print(mask_account_card(data))
+        # print('Processed successfully')
 formatted_date = get_date(test_date)
 print(formatted_date)
