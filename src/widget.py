@@ -1,5 +1,6 @@
 import re
-from masks import get_mask_account, get_mask_card_number
+from src.masks import get_mask_account, get_mask_card_number
+
 
 def mask_account_card(data: str) -> str:
     """Defining regex for cards and accounts"""
@@ -32,6 +33,7 @@ def get_date(date_str: str) -> str:
 
     """Returning date in the right format"""
     return f"{day}.{month}.{year}"
+
 
 test_data = [
     "Visa Platinum 7000792289606361",
