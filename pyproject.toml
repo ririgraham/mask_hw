@@ -11,7 +11,6 @@ python = "^3.12"
 
 [tool.poetry.group.lint.dependencies]
 black = "^24.10.0"
-requests = "^2.32.3"
 flake8 = "^7.1.1"
 mypy = "^1.11.2"
 isort = "^5.13.2"
